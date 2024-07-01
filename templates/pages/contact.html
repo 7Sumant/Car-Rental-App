@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %} | Contact Us {% endblock %}
+{% block content %}
+<head><style>
+
+.overview-bgi:before {
+  background: url("/static/bg4.png") 50% 0 repeat fixed;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+ 
+}
+</style></head>
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Contact Us</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Contact Us</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<div class="contact-2 content-area-5" style="background-color: #011557;
+opacity: 0.9;
+background-image: radial-gradient(#c60000 1.6500000000000001px, #011557 1.6500000000000001px);
+background-size: 33px 33px;">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title text-center">
+            <h1 style="color: azure;">Contact <span>Us</span></h1>
+        </div>
+        <form action="{% url 'contact' %}" method="POST" enctype="multipart/form-data">
+            {% include 'includes/messages.html' %}
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Full Name" style="background-color: white; color: black;" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Email" style="background-color: white; color: black;" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="subject" class="form-control" placeholder="Subject" style="background-color: white; color: black;" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="phone" class="form-control" placeholder="Number" style="background-color: white; color: black;">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" placeholder="Write message" style="background-color: white; color: black;"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-md button-theme" style="background-color: #007bff; color: white; display: block; margin: 0 auto;">Send Message</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Contact 2 end -->
+
+
+{% endblock %}

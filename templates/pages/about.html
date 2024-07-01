@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %} | About Us {% endblock %}
+{% block content %}
+
+{% load static %}
+
+<head>
+    <style>
+        body{
+            background-color: #011557;
+opacity: 0.9;
+background-image: radial-gradient(#d507078b 1.6500000000000001px, #011557 1.6500000000000001px);
+background-size: 33px 33px;
+        }
+        .best-used-car p, h3{
+            color: white;
+        }
+        .main-title h1,p{
+            color: white;
+        }
+        .carousel-item img {
+    width: 60%;
+}
+.about-car .car-details-sliders .list-inline {
+    width: 156%;
+    bottom: -23px;
+    position: absolute;
+}
+.overview-bgi:before {
+  background: url("/static/bg4.png") 50% 0 repeat fixed;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+ 
+}
+    </style>
+</head>
+<!-- Sub banner start -->
+
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>About Us</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">About Us</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+
+<!-- Service center strat -->
+<div class="about-car content-area-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-6">
+                <div class="about-car-photo">
+                    <div id="carDetailsSlider" class="carousel car-details-sliders slide">
+                        <!-- main slider carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" data-slide-number="0">
+                                <img src="{% static 'hbg1.png' %}" class="img-fluid" alt="slider-car">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="1">
+                                <img src="{% static 'mustang.png' %}" class="img-fluid" alt="slider-car">
+                            </div>
+                            <div class="item carousel-item" data-slide-number="2">
+                                <img src="{% static 'ig4.png' %}" class="img-fluid" alt="slider-car">
+                            </div>
+                        </div>
+                        <!-- main slider carousel nav controls -->
+                        <ul class="carousel-indicators car-properties list-inline nav nav-justified">
+                            <li class="list-inline-item active">
+                                <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#carDetailsSlider">
+                                    <img src="{% static 'hbg1.png' %}" class="img-fluid" alt="small-car">
+                                </a>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a id="carousel-selector-1" data-slide-to="1" data-target="#carDetailsSlider">
+                                    <img src="{% static 'mustang.png' %}" class="img-fluid" alt="small-car">
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a id="carousel-selector-2" data-slide-to="2" data-target="#carDetailsSlider">
+                                    <img src="{% static 'ig4.png' %}" class="img-fluid" alt="small-car">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-6 align-self-center">
+                <div class="best-used-car">
+                    <h3>Welcome to <span>AstraRide</span></h3>
+                    <p>"AstraRide is your premier destination for hassle-free car rentals, offering a seamless and convenient experience for all your travel needs. With a wide range of vehicles to choose from, including sedans, SUVs, luxury cars, and more, AstraRide ensures that you find the perfect ride for any occasion. Whether you're planning a weekend getaway, a business trip, or simply need a reliable vehicle for your daily commute, our user-friendly platform makes it easy to book your ideal car with just a few clicks. With competitive pricing, flexible rental options, and top-notch customer service, AstraRide is committed to providing you with a memorable and enjoyable driving experience every time you hit the road. Discover the freedom of mobility with AstraRide and embark on your journey with confidence."</p>
+                    <p class="mb-0">"At AstraRide, we prioritize convenience and customer satisfaction above all else. Our intuitive online platform allows you to browse through our extensive fleet of well-maintained vehicles, compare prices, and make secure bookings from the comfort of your home or on the go. Whether you need a compact car for urban exploration or a spacious van for a family road trip, we've got you covered. Plus, with flexible rental durations and convenient pickup and drop-off locations, AstraRide ensures that your car rental experience is tailored to suit your specific needs and schedule. Trust AstraRide to provide you with reliable transportation solutions that exceed your expectations, every step of the way."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service center end -->
+
+
+
+<!-- Our team start -->
+<div class="our-team content-area">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Executive <span>Team</span></h1>
+            <p>Team working behind maintaining the quality of our AstraRide rental services.</p>
+        </div>
+        <!-- Slick slider area start -->
+        <div class="slick-slider-area clearfix">
+            <div class="row slick-carousel" data-slick='{"slidesToShow": 4, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+            {% for team in teams %}
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="{{team.photo.url}}" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="{{team.facebook_link}}" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="{{team.twitter_link}}" target="_blank" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="{{team.google_plus_link}}" target="_blank" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+					
+                        <div class="details">
+                            <h4><a href="team-detail.html">{{team.first_name}} {{team.last_name}}</a></h4>
+                            <h5>{{team.designation}}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our team end -->
+{% endblock %}

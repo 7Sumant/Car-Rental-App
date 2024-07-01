@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fastbootstrap@2.2.0/dist/css/fastbootstrap.min.css" rel="stylesheet" integrity="sha256-V6lu+OdYNKTKTsVFBuQsyIlDiRWiOmtC8VQ8Lzdm2i4=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   <script src="script.js"></script>
+   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+   <!-- Navbar -->
+    <header id="nav-wrapper">
+    <nav id="nav">
+      <div class="nav left">
+        <span class="gradient skew"><h1 class="logo un-skew"><a href="#home"><img src="/static/carlogo1.png" class="brand"></a></h1></span>
+        <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+      </div>
+      <div class="nav right">
+        <a href="#homecars" class="nav-link active"><span class="nav-link-span"><span class="u-nav">Home</span></span></a>
+        <a href="#" class="nav-link"><span class="nav-link-span"><span class="u-nav">About</span></span></a>
+        <a href="#" class="nav-link"><span class="nav-link-span"><span class="u-nav">Work</span></span></a>
+        <a href="#" class="nav-link"><span class="nav-link-span"><span class="u-nav">Contact</span></span></a>
+      </div>
+    </nav>
+  </header>
+  <div class="line"></div>
+<script> 
+var util = {
+  mobileMenu() {
+    $("#nav").toggleClass("nav-visible");
+  },
+  windowResize() {
+    if ($(window).width() > 800) {
+      $("#nav").removeClass("nav-visible");
+    }
+  },
+  scrollEvent() {
+    var scrollPosition = $(document).scrollTop();
+    
+    $.each(util.scrollMenuIds, function(i) {
+      var link = util.scrollMenuIds[i],
+          container = $(link).attr("href"),
+          containerOffset = $(container).offset().top,
+          containerHeight = $(container).outerHeight(),
+          containerBottom = containerOffset + containerHeight;
+
+      if (scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20) {
+        $(link).addClass("active");
+      } else {
+        $(link).removeClass("active");
+      }
+    });
+  }
+};
+
+$(document).ready(function() {
+  
+  util.scrollMenuIds = $("a.nav-link[href]");
+  $("#menu").click(util.mobileMenu);
+  $(window).resize(util.windowResize);
+  $(document).scroll(util.scrollEvent);
+  
+});
+</script>
+
+    <!-- Display cars -->
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <img src="{% static 'bg1.jpg' %}" class="homebg">
+        <div class="carousel-item active">
+          <div class="main">
+            <h1 style="height: 3rem; 	font-size: 5.5rem;">Bugatti Veyron  
+              <div class="roller" style="color: white;">
+              <span id="rolltext">
+                <div class="op" style="font-weight: 500; font-size: 1.5rem;">Top speed of 408.84 km (253 MPH)<br/>Mileage: 6.300 miles<br/>
+                Power: 882 KW / 1182 HP<br/>
+              <span id="spare-time">EXPERIENCE THE LUXURY OF DRIVING </span> 
+              </div>
+              </div>
+              </h1>
+            </div>
+            <div>
+          <img src="{% static 'hbg1.png' %}" class="d-block"  alt="...">
+        </div>
+        </div>
+        <div class="carousel-item ">
+          <div class="main">
+            <h1 style="height: 3rem; 	font-size: 5.5rem; color: #fcb229;">Chevrolet Camaro 
+              <div class="roller" style="color: white;">
+              <span id="rolltext">
+                <div class="op" style="font-weight: 500; font-size: 1.5rem;">Top speed of 296 km/h (184 mph)<br/>Mileage: 29 mpg<br/>
+                Power: 272 kW / 367 HP <br/>
+              <span id="spare-time">EXPERIENCE THE LUXURY OF DRIVING </span> 
+            </div>
+              </div>
+              </h1>
+            </div>
+            <div>
+          <img src="{% static 'ig4.png' %}" class="d-block"  alt="...">
+        </div>
+         
+        </div>
+        <div class="carousel-item">
+          <div class="main">
+            <h1 style="height: 3rem; 	font-size: 5.5rem; color: #1239e5;">Ford Mustang 
+              <div class="roller" style="color: white;">
+              <span id="rolltext">
+                <div class="op" style="font-weight: 500; font-size: 1.5rem;">Top speed of 280 km/h (174 MPH)<br/>Mileage: 6.300 miles<br/>
+                Power: 392 kW / 526 HP.<br/>
+              <span id="spare-time">EXPERIENCE THE LUXURY OF DRIVING </span> 
+            </div>
+              </div>
+              </h1>
+            </div>
+            <div>
+          <img src="{% static 'mustang.png' %}" class="d-block"  alt="...">
+        </div>
+        </div>
+        <div class="carousel-item">
+          <div class="main">
+            <h1 style="height: 3rem; 	font-size: 5.5rem;  color: #0558ab;">Rolls Royce  
+              <div class="roller" style="color: white;">
+              <span id="rolltext">
+                <div class="op" style="font-weight: 500; font-size: 1.5rem;">Top speed of 408.84 km (253 MPH)<br/>Mileage: 6.300 miles<br/>
+                Power: 882 KW / 1182 HP<br/>
+              <span id="spare-time">EXPERIENCE THE LUXURY OF DRIVING </span> 
+            </div>
+              </div>
+              </h1>
+            </div>
+            <div>
+          <img src="{% static 'bg7.png' %}" class="d-block"  alt="...">
+        </div>
+        </div>
+        <div class="carousel-item">
+          <div class="main">
+            <h1 style="height: 3rem; 	font-size: 5.5rem; color:#d8d0ac;">Mercedes-Maybach 
+              <div class="roller" style="color: white;">
+              <span id="rolltext">
+                <div class="op" style="font-weight: 500; font-size: 1.5rem;">Top speed of 408.84 km (253 MPH)<br/>Mileage: 6.300 miles<br/>
+                Power: 882 KW / 1182 HP<br/>
+              <span id="spare-time">EXPERIENCE THE LUXURY OF DRIVING </span> 
+            </div>
+              </div>
+              </h1>
+            </div>
+            <div>
+          <img src="{% static 'm.png' %}" class="d-block"  alt="...">
+        </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="line"></div>
+
+    <!-- Advertise cars -->
+<section class="homecars" id="homecars"> 
+<div class="homes">  
+  <div class="outer-card">
+    <div class="inner-card">
+      <video autoplay loop muted class="video-background">
+          <source src="{% static 'Ev.mp4' %}" type="video/mp4">   
+      </video>
+      <marquee><h3 style="font-size: 1.5rem;
+        font-style: italic; color: #1239e5;;
+       ">Drive into the EV Future Your Way with Leveraging EV Technology</h3></marquee>
+       
+    </div>
+  </div>
+  
+  <div class="tx"><h1 style="font-size: 4.5rem;">  
+    <span class="word" style="color: #1f8bff; font-weight: 600; ">We make your journey into<span class="superscript"></span> </span>
+    <span class="word" style="font-weight:900;padding: 0;">Destination</span>
+  </h1>
+  </div>
+      </div>  
+  
+   </section>
+
+    <!-- Advertise cars -->
+   <div class="hero">
+    <h6>Shop you way</h6>
+    <h2>Why choose us</h2>
+    <div class="services">
+      <div class="service">
+        <div class="ids"><box-icon type='solid' name='truck' class="sy"></box-icon></div>
+        <h3>Reasonable Prices</h3>
+        <p>Our prices are competitive, and we believe that everyone deserves to experience the joy of driving. Choose from our wide range of cars and start your journey today!</p>
+      </div>
+      <div class="service">
+        <div class="ids"><box-icon name='credit-card-alt' type='solid' class="sy" ></box-icon></div>
+        <h3>Maintenance & Delivery</h3>
+        <p>Our cars are well-maintained and regularly serviced, ensuring a smooth and safe driving experience. We also offer delivery services, making it easy to get your car wherever you are.</p>
+      </div>
+      <div class="service">
+        <div class="ids"><box-icon name='support' class="sy"></box-icon></div>
+        <h3>24/7 Support</h3>
+        <p>Our support team is available 24/7 to assist you with any questions or concerns you may have. We are here to make your car rental experience as seamless as possible.</p>
+      </div>
+      <div class="service">
+        <div class="ids"><box-icon name='shuffle' class="sy"></box-icon></div>
+        <h3>Flexible Rental Options</h3>
+        <p>Choose from our flexible rental options, including daily, weekly, and monthly rentals. We believe in providing our customers with options that suit their needs and preferences.</p>
+      </div>
+    </div>
+   
+    <div class="highway"></div>
+    <div class="city"></div>
+
+    <div class="car">
+      <img src="https://1.bp.blogspot.com/-N3XclPGx2AQ/XtXibb-ucHI/AAAAAAAAABE/mygj36OgUSM3I9RxUOALL0-jf3B2nR-egCK4BGAsYHg/car.png">
+    </div>
+    <div class="wheel">
+      <img src="https://1.bp.blogspot.com/-f0m1JShSCI0/XtXkcTSh_rI/AAAAAAAAACc/XWDwk2UaiDQbMhqelGeJZcPVaHvHF16JACK4BGAsYHg/wheel.png" class="back-wheel">
+      <img src="https://1.bp.blogspot.com/-f0m1JShSCI0/XtXkcTSh_rI/AAAAAAAAACc/XWDwk2UaiDQbMhqelGeJZcPVaHvHF16JACK4BGAsYHg/wheel.png" class="front-wheel">
+    </div>
+  </div>
+
+  <section class="my-carousel">
+    
+    <h2 class="my-categories-title">Customer Reviews</h2>
+    <div class="my-carousel-container">
+      <div class="my-carousel-item">
+        <h1>★★★★★</h1>
+        <img class="my-carousel-item-img" src="/static/p2.avif" alt="people"/>
+               <div class="my-carousel-item-details">
+          <div class="my-controls">
+            <span class="fas fa-play-circle"></span>
+            <span class="fas fa-plus-circle"></span>
+          </div>
+          <h5 class="my-carousel-item-details-title" style="font-size: 15px;">Lyle Green</h5>
+          <h6 class="my-carousel-item-details-subtitle" style="font-family:  Exo, Verdana, sans-serif;">Great company, great site and <br> overall true experts!</h6>
+        </div>
+      </div>
+      <!-- Other carousel items go here -->
+      <div class="my-carousel-item">
+        <h1>★★★★★</h1>
+        <img class="my-carousel-item-img" src="/static/p1.jpeg" alt="people"/>
+        <div class="my-carousel-item-details">
+          <div class="my-controls">
+            <span class="fas fa-play-circle"></span>
+            <span class="fas fa-plus-circle"></span>
+          </div>
+          <h5 class="my-carousel-item-details-title" style="font-size: 15px;">Richard Marvin</h5>
+          <h6 class="my-carousel-item-details-subtitle">AstraRide experts helped me buy <br> my first EV, and I'm so glad they did!</h6>
+        </div>
+      </div>
+      <div class="my-carousel-item">
+        <h1>★★★★★</h1>
+        <img class="my-carousel-item-img" src="/static/p3.avif" alt="people"/>
+        <div class="my-carousel-item-details">
+          <div class="my-controls">
+            <span class="fas fa-play-circle"></span>
+            <span class="fas fa-plus-circle"></span>
+          </div>
+          <h5 class="my-carousel-item-details-title" style="font-size: 15px;">Anne Hope</h5>
+          <h6 class="my-carousel-item-details-subtitle">The AstraRide website is so easy to use <br> and full of great information!</h6>
+        </div>
+      </div>
+      <div class="my-carousel-item">
+        <h1>★★★★★</h1>
+        <img class="my-carousel-item-img" src="/static/p4.jpg" alt="people"/>
+        <div class="my-carousel-item-details">
+          <div class="my-controls">
+            <span class="fas fa-play-circle"></span>
+            <span class="fas fa-plus-circle"></span>
+          </div>
+          <h5 class="my-carousel-item-details-title" style="font-size: 15px;"> Mark Justin </h5>
+          <h6 class="my-carousel-item-details-subtitle">I rented an SUV for a family vacation, <br> and it was the perfect choice! The car <br> was spacious, comfortable, and safe, <br> making our trip unforgettable. <br> Thank you, AstraRide!</h6>
+        </div>
+      </div>
+      <div class="my-carousel-item">
+        <h1>★★★★★</h1>
+        <img class="my-carousel-item-img" src="/static/p5.jpg" alt="people"/>
+        <div class="my-carousel-item-details">
+          <div class="my-controls">
+            <span class="fas fa-play-circle"></span>
+            <span class="fas fa-plus-circle"></span>
+          </div>
+          <h5 class="my-carousel-item-details-title" style="font-size: 15px;">Maria Oliver</h5>
+          <h6 class="my-carousel-item-details-subtitle">Great service and excellent cars! <br> I rented a car for a weekend getaway <br> and it was a smooth and hassle-free <br> experience. Highly recommend astraride <br> for all your car rental needs!</h6>
+        </div>
+      </div>
+      <div class="my-carousel-item">
+        <h1>★★★★★</h1>
+        <img class="my-carousel-item-img" src="/static/p6.jpg" alt="people"/>
+        <div class="my-carousel-item-details">
+          <div class="my-controls">
+            <span class="fas fa-play-circle"></span>
+            <span class="fas fa-plus-circle"></span>
+          </div>
+          <h5 class="my-carousel-item-details-title" style="font-size: 15px;">Jamie Stock</h5>
+          <h6 class="my-carousel-item-details-subtitle" style="width: 250px;">I had an amazing experience renting <br> an exotic car for a business trip. <br> The car was luxurious and eye-catching, <br> and the service was top-notch. I will <br> definitely be renting from AstraRide again!</h6>
+        </div>
+      </div>
+    </div>
+    
+    <div class="void" id="void">
+      <div class="crop">
+      <ul id="card-list" style="--count: 6;">
+        <li><div class="ca"><a href=""><span class="model-name">Luxury SUV Collection</span><span><img src="/static/g3.webp" class="pg"> </span></a></div></li>
+        <li><div class="ca"><a href=""><span class="model-name">Full-Size SUV Collection</span><span><img src="/static/g4.webp" class="pg"></span></a></div></li>
+        <li><div class="ca"><a href=""><span class="model-name">Economy Sedan Collection</span><span><img src="/static/g5.webp" class="pg"></span></a></div></li>
+        <li><div class="ca"><a href=""><span class="model-name">Luxury Convertible Car Collection</span><span><img src="/static/g9.webp" class="pg"></span></a></div></li>
+        <li><div class="ca"><a href=""><span class="model-name">Exotic Car Collection</span><span><img src="/static/g7.webp" class="pg"></span></a></div></li>
+        <li><div class="ca"><a href=""><span class="model-name">Compact Car Collection</span><span><img src="/static/g8.webp" class="pg"></span></a></div></li>
+      </ul>
+      <div class="last-circle"></div>
+      <div class="second-circle"></div>
+      </div>
+      <div class="mask"><h1 class="section-title" style="color: aqua;">The Latest <span style="color: red; font-weight: 600;"> Luxury & Comfort Insights </span> for You!</h1><img src="/static/d1.webp" class="d1"></div>
+      <div class="center-circle"></div>
+         </section>
+  
+
+<div class="body">
+  <footer class="footer">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+    <img src="/static/carlogo1.png" class="ftlogo">
+    <ul class="social-icon">
+   
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+      <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+      <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+    </ul>
+    <div class="custom_footer_top">
+      <div class="footer_background">
+          <div class="footer_background_one"></div>
+          <div class="footer_background_two"></div>
+      </div>
+  </div>
+    <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+  </footer>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</div>
+ 
+
+
+</body>
+</html>
