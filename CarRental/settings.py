@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_(ni70t4186p=c35@k0(d3189thbr@ua-q(!25wu#2#ldwjtqb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['198.211.99.20', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['198.211.99.20', 'localhost', '127.0.0.1', '.now.sh', '.vercel.app']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
@@ -151,3 +151,4 @@ SITE_ID = 1
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
