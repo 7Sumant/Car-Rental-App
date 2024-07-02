@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0; 
+
+}
+
+h1 {background-color: white;
+    text-align: center;
+    padding: 3px;
+    font-family:fantasy;
+    color: black;
+    margin: 20px;
+}
+h4 {
+    margin: 20px;
+    text-align:start;
+}
+body{
+    background-color: rgb(83, 235, 126);
+}
+
+form {
+    background-color: rgb(39, 149, 246);
+    color: white;
+    padding: 12px;
+    margin-left: 600px;
+    justify-content: center;
+    align-items: center;
+    align-content:center;
+    width: 500px;
+    border-radius: 15px;
+    font-weight: 600;
+}
